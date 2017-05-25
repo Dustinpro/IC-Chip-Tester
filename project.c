@@ -143,11 +143,11 @@ void Test2() {
       pinMode(pin[3], INPUT);
       pinMode(pin[12], OUTPUT);
       
-	  // figure out a 2-input chip's type through the first three pins
-	  Type = hashValue(1, 2, 3);
+      // figure out a 2-input chip's type through the first three pins
+      Type = hashValue(1, 2, 3);
 	  
-	  reset();
-	  //Control the serial monitor to give the chip's info (type and integrity)
+      reset();
+      //Control the serial monitor to give the chip's info (type and integrity)
       switch(Type){
         case 6:
           Serial.println("2-input XOR");
@@ -172,10 +172,10 @@ void Test2() {
 	  }
       return;
     
-	case 3:
+    case 3:
       pinMode(pin[3], OUTPUT);
       //Control the serial monitor to give the chip's info (type and integrity)
-	  Serial.println("3-input NOR");
+      Serial.println("3-input NOR");
       if(hashValue3(1, 2, 13, 12) != hashValue3(3, 4, 5, 6)){
       	Serial.println("This TTL chip does not work normally!");
       	boo = 0;
@@ -186,7 +186,7 @@ void Test2() {
     case 4:
       pinMode(pin[3], OUTPUT);
       //Control the serial monitor to give the chip's info (type and integrity)
-	  Serial.println("3-input NAND");
+      Serial.println("3-input NAND");
       if(hashValue3(1, 2, 13, 12) != hashValue3(3, 4, 5, 6)){
       	Serial.println("This TTL chip does not work normally!");
       	boo = 0;
@@ -216,25 +216,25 @@ void loop(){
       switch(Type){
         case 6:
 	      //XOR2 74LS86
-		  digitalWrite(L[1], HIGH);
+	      digitalWrite(L[1], HIGH);
 	      digitalWrite(L[2], HIGH);
 	      digitalWrite(L[3], HIGH);
           break;
         case 7:
 	      //NAND2 74LS00
-		  digitalWrite(L[1], LOW);
+	      digitalWrite(L[1], LOW);
 	      digitalWrite(L[2], HIGH);
 	      digitalWrite(L[3], HIGH);
           break;
         case 8:
 	      //AND2 74LS08
-		  digitalWrite(L[1], HIGH);
+	      digitalWrite(L[1], HIGH);
 	      digitalWrite(L[2], HIGH);
 	      digitalWrite(L[3], LOW);
           break;
         case 14:
 	      //OR2 74LS32
-		  digitalWrite(L[1], LOW);
+	      digitalWrite(L[1], LOW);
 	      digitalWrite(L[2], HIGH);
 	      digitalWrite(L[3], LOW);
           break;
